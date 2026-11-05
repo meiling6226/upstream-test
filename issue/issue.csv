@@ -1,2 +1,3 @@
 ﻿test_path,issue,title
 tests/v1/distributed/test_async_llm_dp.py,12942,[Bug][Upstream]: ray related case failed: tests/v1/distributed/test_async_llm_dp.py
+tests/transformers_utils/test_processor.py,20992,[Bug][Upstream]: processor local snapshot case failed: tests/transformers_utils/test_processor.py
