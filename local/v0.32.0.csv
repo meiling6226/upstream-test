@@ -77,7 +77,7 @@ tests/kernels/mamba/test_gdn_prefill_flashinfer.py,unknown,ModuleNotFoundError: 
 tests/kernels/mamba/test_gdn_rocm_layout_dispatch.py,skipped,"全部 skipped：15 skipped（skipif not current_platform.is_rocm()，reason=""ROCm-specific tests""）",ROCm GDN layout 分发用例。,无法执行-后端,,
 tests/kernels/mamba/test_mamba2_checkpoint_state.py,passed,,,,,
 tests/kernels/mhc/test_mhc_jit_warmup.py,skipped,collected 0 items / 1 skipped,模块级 skip（collected 0 items / 1 skipped），用例依赖的 CUDA/ROCm 后端或平台条件不满足，未收集到可执行用例,无法执行-后端,,
-tests/kernels/mhc/test_mhc_kernels.py,unknown,ImportError: tilelang is required for mhc but is not installed. Install it with `pip install tilelang`.,收集阶段即失败：vLLM 的 mhc tilelang kernel 在 import 时强制要求 tilelang，镜像里没有该依赖。,无法执行-依赖,,
+tests/kernels/mhc/test_mhc_kernels.py,passed,,,,,
 tests/kernels/mhc/test_mhc_tilelang_jit.py,skipped,"全部 skipped：3 skipped（skipif not (is_cuda() or is_rocm())，reason=""Test requires CUDA or ROCm""）",tilelang JIT 用例只在 CUDA/ROCm 上跑，NPU 上全部跳过。,无法执行-后端,,
 tests/kernels/moe/test_deepep_v2_async_finalize.py,skipped,"全部 skipped：3 skipped（skipif not has_deep_ep_v2()，reason=""Requires DeepEP v2 (ElasticBuffer)""）",依赖 DeepEP v2（CUDA 专用包），NPU 上全部跳过。,无法执行-后端,,
 tests/kernels/moe/test_flashinfer_moe_ep.py,skipped,"全部 skipped：18 skipped（skipif not is_device_capability_family(100)，reason=""Blackwell GPUs""）",依赖 FlashInfer MoE-EP 和 Blackwell GPU，NPU 上全部跳过。,无法执行-后端,,
