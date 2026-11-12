@@ -1,0 +1,3 @@
+test_path,issue,title
+tests/models/language/pooling_mteb_test/test_qwen3_reranker.py,10104,[Bug][Upstream]: vLLM hangs when running tests/models/language/pooling_mteb_test/test_qwen3_reranker.py
+tests/entrypoints/anthropic/test_messages.py,14870,[Bug][Upstream]: TypeError: AsyncMessages.create() got an unexpected keyword argument 'temperature'
