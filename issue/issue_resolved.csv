@@ -37,7 +37,7 @@ tests/models/multimodal/pooling/test_phi3v.py,10723,,,,[Bug][Upstream]: phi3v ac
 tests/models/multimodal/pooling/test_llama_nemotron_vl.py,13255,,,,[Bug][Upstream]: TypeError: create_bidirectional_mask() missing 1 required positional argument: 'inputs_embeds'
 tests/model_executor/test_routed_experts_capture.py,13257,,,,[Bug][Upstream]: AssertionError: Forward context is not set. Please use `set_forward_context` to set the forward context.
 tests/lora/test_qwenvl.py,14411,,,,[Bug][Upstream]: AssertionError: x must be a 2D tensor
-tests/models/language/pooling/test_all_pooling_plus_chunked_prefill.py,14413,,,,[Bug][Upstream]: AttributeError: 'VllmConfig' object has no attribute 'kv_cache_config'. Did you mean: 'cache_config'?
+tests/models/language/pooling/test_all_pooling_plus_chunked_prefill.py,14413,,,,[Bug][Upstream]:  AttributeError: 'VllmConfig' object has no attribute 'kv_cache_config'. Did you mean: 'cache_config'?
 tests/models/multimodal/pooling/test_colqwen3_5.py,14456,,,,"[Bug][Upstream]: RuntimeError: npu_chunk_gated_delta_rule:../third_party/op-plugin/op_plugin/ops/opapi/ChunkGatedDeltaRuleKernelNpuOpApi.cpp:57 NPU function error: call aclnnChunkGatedDeltaRule failed, error code is 161002"
 tests/entrypoints/multimodal/openai/chat_completion/test_vision_embeds.py,14881,,,,[Bug][Upstream]: AssertionError: Current vLLM config is not set
 tests/models/test_terratorch.py,14881,,,,[Bug][Upstream]: AssertionError: Current vLLM config is not set
@@ -47,3 +47,9 @@ tests/models/multimodal/pooling/test_colqwen3_5.py,16359,,,,"[Bug][Upstream]: Ru
 tests/models/multimodal/test_nano_nemotron_vl.py,16556,,,,[Bug][Upstream]: AttributeError: 'NanoNemotronVLMultiModalProcessor' object has no attribute 'data_parser'
 tests/models/multimodal/pooling/test_siglip.py,17359,,,,"[Bug][Upstream]: ValueError: The current GQA‑related models adopt static quantization. KV quantization is configured via `--kv‑cache‑dtype` upon service startup, and the corresponding quantized weights are required"
 tests/models/language/pooling/test_multi_vector_retrieval.py,17359,,,,"[Bug][Upstream]: ValueError: The current GQA‑related models adopt static quantization. KV quantization is configured via `--kv‑cache‑dtype` upon service startup, and the corresponding quantized weights are required"
+tests/v1/core/test_prefix_caching.py,20099,,,,[Bug][Upstream]: AssertionError  assert self.host_manager is not None
+tests/v1/test_outputs.py,16519,,,,"[Bug]: assert [0, 1, 2] == [0, 2, 4]"
+tests/entrypoints/openai/responses/test_stateful.py,20095,,,,[Bug][Upstream]:AssertionError: assert 'queued' == 'completed'
+tests/v1/core/test_single_type_kv_cache_manager.py,20221,,,,[Bug][Upstream]: assert admission_estimate == allocation_estimate == allocated   E       assert 3 == 2
+tests/v1/kv_connector/unit/test_mooncake_store_worker.py,21620,,,,[Bug][Upstream]: Mooncake store worker hash block size case failed: tests/v1/kv_connector/unit/test_mooncake_store_worker.py
+tests/models/language/pooling_mteb_test/test_nemotron.py,22883,中,llama-nemotron-rerank-vl-1b-v2 在 NPU 上 rerank 精度低于基线约 3.3 个百分点（MTEB NFCorpus 0.30625 vs 0.33919），影响检索/排序场景的排序质量；不影响同文件 embed 模型与文本版 rerank 模型，也不影响其它用例。,"rerank 打分与 Sentence-Transformers 基线偏差超容差，断言位于 tests/models/language/pooling_mteb_test/mteb_score_utils.py:316；VL rerank 模型在其 Sentence Transformers config 中声明 score template（测试不传 chat template），vllm-ascend 路径下打分偏差 0.03294（tol 0.01）。同文件文本版 rerank（model_info0）与 embed 模型均通过。测试标了 @pytest.mark.flaky(reruns=2)，但 CI 未安装 pytest-rerunfailures，实际未重跑。<br>运行：run 45040727110 / e2e-upstream_singlecard shard 1 / [34/159]，文件结果 1 failed, 2 passed（420.09s）。",[Bug][Upstream]: Nemotron VL rerank mteb score mismatch case failed: tests/models/language/pooling_mteb_test/test_nemotron.py
