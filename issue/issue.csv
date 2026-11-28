@@ -1,4 +1,4 @@
-test_path,issue,影响程度,影响,notes,title
+﻿test_path,issue,影响程度,影响,notes,title
 tests/v1/distributed/test_async_llm_dp.py,12942,,,,[Bug][Upstream]: ray related case failed: tests/v1/distributed/test_async_llm_dp.py
 tests/transformers_utils/test_processor.py,20992,,,,[Bug][Upstream]: processor local snapshot case failed: tests/transformers_utils/test_processor.py
 tests/models/language/pooling/test_colbert.py,8494,,,,"[Bug][Upstream]: The process exits for this inner error, and the current working operator name is RopeOperation"
@@ -40,13 +40,10 @@ tests/v1/core/test_scheduler.py,20216,,,,[Bug][Upstream]:  coordinator = _bind_h
 tests/v1/test_outputs.py,20218,,,,"[Bug][Upstream]: assert 0 == 512   E        +  where 512 = min(512, 2048)"
 tests/detokenizer/test_stop_reason.py,20220,,,,[Bug][Upstream]: AssertionError: assert 'length' == 'stop'   E                E             - stop   E             + length
 tests/v1/kv_connector/unit/test_remote_prefill_lifecycle.py,21609,,,,[Bug][Upstream]: Mamba spec block double reserve case failed: tests/v1/kv_connector/unit/test_remote_prefill_lifecycle.py
-tests/parser/mistral/test_tool_calls.py,21610,,,,[Bug][Upstream]: Mistral tool call parser grammar factory case failed: tests/parser/mistral/test_tool_calls.py
 tests/v1/e2e/spec_decode/acceptance_rates/mtp_other/test_medusa.py,21611,,,,[Bug][Upstream]: Medusa acceptance rate case failed: tests/v1/e2e/spec_decode/acceptance_rates/mtp_other/test_medusa.py
 tests/models/test_terratorch.py,21612,,,,[Bug][Upstream]: Terratorch Prithvi inference case failed: tests/models/test_terratorch.py
 tests/v1/spec_decode/test_dflash2.py,21613,,,,[Bug][Upstream]: DFlash2 spec decode case failed: tests/v1/spec_decode/test_dflash2.py
 tests/entrypoints/openai/chat_completion/test_chat_echo.py,21615,,,,[Bug][Upstream]: Chat echo logprobs case failed: tests/entrypoints/openai/chat_completion/test_chat_echo.py
-tests/parser/mistral/test_reasoning.py,21616,,,,[Bug][Upstream]: Mistral reasoning parser case failed: tests/parser/mistral/test_reasoning.py
-tests/tokenizers_/test_mistral.py,21617,,,,[Bug][Upstream]: Mistral tokenizer request validation case failed: tests/tokenizers_/test_mistral.py
 tests/evals/mrcr/test_mrcr_correctness.py,21618,,,,[Bug][Upstream]: MRCR correctness case failed: tests/evals/mrcr/test_mrcr_correctness.py
 tests/model_executor/test_routed_experts_capture.py,21619,,,,[Bug][Upstream]: Routed experts capture case failed: tests/model_executor/test_routed_experts_capture.py
 tests/basic_correctness/cpu_offload/test_cpu_offload.py,21964,小,CPU Offload 依赖 UVA 统一虚拟地址，NPU 没有对应能力，权重/KV 卸载到 CPU 不可用；显存足够时的常规在线推理不受影响。,5 failed 3 passed。上游 UVAOffloader 调用 vllm/utils/torch_utils.py:920 的 accelerator view 接口，该接口只有 XPU/CUDA 分支，NPU 直接 raise；vllm-ascend 未提供等价实现，而该特性依赖 UVA 统一虚拟寻址，NPU 无对应能力，属 vllm-ascend 未适配的能力缺口（需另做 offlo,[Bug][Upstream]: test_cpu_offload case failed: tests/basic_correctness/cpu_offload/test_cpu_offload.py
